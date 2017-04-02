@@ -22,8 +22,8 @@
     <![endif]-->
   </head>
   <body>
-    <?php 
-        @session_start();
+    <?php
+        session_start();
         if(isset($_SESSION['usuario'])){
             $usuario = $_SESSION['usuario'];
     ?>
@@ -41,25 +41,23 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Bem vindo <?php echo $usuario ?></a></li>
-            <li><a href="cadastrarLivro.php">Cadastrar Livro</a></li>
+            <li><a href="cadastrarLivro.html">Cadastrar Livro</a></li>
             <li><a href="cadastrarUsuario.php">Cadastrar Usuários</a></li>
             <li><a href="index.php">Livros</a></li>
             <li><a href="processaSair.php">Sair</a></li>
           </ul>
     </nav>
-   <?php
-    }
-    ?>
+        
     <div class="container">
-      <form class="form-signin" action="processaCadastroUsuario.php" method="post">
-        <h2 class="form-signin-heading">Cadastrar Usuário</h2>
-        <label for="inputEmail" class="sr-only" >Usuário</label>
-        <input type="text" id="inputText" class="form-control" placeholder="Usuário" required autofocus name="login">
-        <label for="inputEmail" class="sr-only">Senha</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required name="senha">
+      <form class="form-signin" action="processaCadastroLivro.php" method="post">
+        <h2 class="form-signin-heading">Cadastrar Livro</h2>
+        <label for="inputEmail" class="sr-only" >Título</label>
+        <input type="text" id="inputText" class="form-control" placeholder="Título" required autofocus name="nome">
+        <label for="inputEmail" class="sr-only">Quantidade Disponível</label>
+        <input type="text" id="inputText" class="form-control" placeholder="Quantidade Disponível" required name="qtd">
         <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
       </form>
     </div> <!-- /container -->
   </body>
 </html>
-
+<?php } ?>

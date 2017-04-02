@@ -50,9 +50,10 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Bem vindo <?php echo $usuario ?></a></li>
-            <li><a href="cadastrarLivro.html">Cadastrar Livro</a></li>
-            <li><a href="cadastrarUsuario.html">Cadastrar Usuários</a></li>
+            <li><a href="cadastrarLivro.php">Cadastrar Livro</a></li>
+            <li><a href="cadastrarUsuario.php">Cadastrar Usuários</a></li>
             <li><a href="index.php">Livros</a></li>
+            <li><a href="processaSair.php">Sair</a></li>
           </ul>
          </nav>
         <?php
