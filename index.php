@@ -11,24 +11,8 @@
 
     <title>Biblioteca</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/estilo.css" rel="stylesheet">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/dashboard.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
     <body>
         <?php
@@ -36,36 +20,26 @@
             if(isset($_SESSION['usuario'])){
                 $usuario = $_SESSION['usuario'];
         ?>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.php">Biblioteca</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Bem vindo <?php echo $usuario ?></a></li>
-            <li><a href="cadastrarLivro.php">Cadastrar Livro</a></li>
-            <li><a href="cadastrarUsuario.php">Cadastrar Usuários</a></li>
-            <li><a href="index.php">Livros</a></li>
-            <li><a href="processaSair.php">Sair</a></li>
-          </ul>
+        <nav>
+            <div class="menu col4 col-m-4">
+                <ul>
+                    <li>Bem vindo <?php echo $usuario ?> | </li>
+                    <li><a href="index.php">Início</a> | </li>
+                    <li><a href="cadastrarLivro.php">Cadastrar Livro</a> | </li>
+                    <li><a href="index.php">Livros</a> | </li>
+                    <li><a href="processaSair.php">Sair</a></li>
+                </ul>
+            </div>
          </nav>
         <?php
-                
                 $sconexao = "host=ec2-54-243-124-240.compute-1.amazonaws.com port=5432 dbname=dcfr83fuj95lm7 user=rweuqlrlblxtap password=f1887ebdce0aec7840c48b0d84c4f037944425fdbb976c8d91601d922c8795c3";
                 $conexao = @pg_connect($sconexao);
                 $resultado = @pg_query($conexao, "SELECT * FROM LIVRO ORDER BY ID");
                 $numero_linhas = @pg_affected_rows($resultado);
-                echo "<h2 class='sub-header' style='margin:10px'>Livros</h2>";
-                echo "<div class='table-responsive' style='margin:10px'>";
+                echo "<h2>Livros</h2><br>";
+                echo "<div class='tabela' style='margin:10px'>";
                 if($numero_linhas != 0){
-                    echo "<table class='table table-striped'>";
+                    echo "<table>";
                     echo "<tr>";
                     echo "<th>ID</th>";
                     echo "<th>Título</th>";

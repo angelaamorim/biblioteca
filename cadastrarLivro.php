@@ -8,18 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
     <title>Biblioteca</title>
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-    <link href="css/signin.css" rel="stylesheet">
-    <link href="css/dashboard.css" rel="stylesheet">
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <!--<script src="../../assets/js/ie-emulation-modes-warning.js"></script>-->
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="css/estilo.css" rel="stylesheet">
   </head>
   <body>
     <?php
@@ -27,37 +16,28 @@
         if(isset($_SESSION['usuario'])){
             $usuario = $_SESSION['usuario'];
     ?>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.php">Biblioteca</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Bem vindo <?php echo $usuario ?></a></li>
-            <li><a href="cadastrarLivro.html">Cadastrar Livro</a></li>
-            <li><a href="cadastrarUsuario.php">Cadastrar Usuários</a></li>
-            <li><a href="index.php">Livros</a></li>
-            <li><a href="processaSair.php">Sair</a></li>
-          </ul>
-    </nav>
+    <nav>
+            <div class="menu col4 col-m-4">
+                <ul>
+                    <li>Bem vindo <?php echo $usuario ?> | </li>
+                    <li><a href="index.php">Início</a> | </li>
+                    <li><a href="cadastrarLivro.php">Cadastrar Livro</a> | </li>
+                    <li><a href="index.php">Livros</a> | </li>
+                    <li><a href="processaSair.php">Sair</a></li>
+                </ul>
+            </div>
+         </nav>
         
-    <div class="container">
-      <form class="form-signin" action="processaCadastroLivro.php" method="post">
-        <h2 class="form-signin-heading">Cadastrar Livro</h2>
-        <label for="inputEmail" class="sr-only" >Título</label>
-        <input type="text" id="inputText" class="form-control" placeholder="Título" required autofocus name="nome">
-        <label for="inputEmail" class="sr-only">Quantidade Disponível</label>
-        <input type="text" id="inputText" class="form-control" placeholder="Quantidade Disponível" required name="qtd">
+    <div class="tabela col4 col-m-4">
+      <form action="processaCadastroLivro.php" method="post">
+        <h2>Cadastrar Livro</h2><br>
+        <label for="inputEmail">Título:</label>
+        <input type="text" id="inputText" placeholder="Título" required autofocus name="nome"><br><br>
+        <label for="inputEmail">Qtd Disponível:</label>
+        <input type="text" id="inputText" placeholder="Qtd Disponível" required name="qtd"><br><br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
       </form>
-    </div> <!-- /container -->
+    </div>
   </body>
 </html>
 <?php } ?>
